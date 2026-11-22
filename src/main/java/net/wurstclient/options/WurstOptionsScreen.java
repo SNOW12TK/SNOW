@@ -118,28 +118,7 @@ public class WurstOptionsScreen extends Screen
 	
 	private void addLinkButtons()
 	{
-		OS os = Util.getPlatform();
-		
-		new WurstOptionsButton(54, 24, () -> "Official Website",
-			"§n§lWurstClient.net",
-			b -> os.openUri("https://www.wurstclient.net/options-website/"));
-		
-		new WurstOptionsButton(54, 48, () -> "Wurst Wiki", "§n§lWurst.Wiki",
-			b -> os.openUri("https://www.wurstclient.net/options-wiki/"));
-		
-		new WurstOptionsButton(54, 72, () -> "WurstForum", "§n§lWurstForum.net",
-			b -> os.openUri("https://www.wurstclient.net/options-forum/"));
-		
-		new WurstOptionsButton(54, 96, () -> "Twitter", "@Wurst_Imperium",
-			b -> os.openUri("https://www.wurstclient.net/options-twitter/"));
-		
-		new WurstOptionsButton(54, 120, () -> "Donate",
-			"§n§lWurstClient.net/donate\n"
-				+ "Donate now to help me keep the Wurst Client alive and free"
-				+ " to use for everyone.\n\n"
-				+ "Every bit helps and is much appreciated! You can also get a"
-				+ " few cool perks in return.",
-			b -> os.openUri("https://www.wurstclient.net/options-donate/"));
+
 	}
 	
 	@Override

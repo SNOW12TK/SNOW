@@ -106,7 +106,7 @@ public abstract class StatsScreenMixin extends Screen
 	private Component getToggleButtonText()
 	{
 		WurstClient wurst = WurstClient.INSTANCE;
-		String text = (wurst.isEnabled() ? "Disable" : "Enable") + " Wurst";
+		String text = (wurst.isEnabled() ? "Disable" : "Enable") + " Snow";
 		return Component.literal(text);
 	}
 }
