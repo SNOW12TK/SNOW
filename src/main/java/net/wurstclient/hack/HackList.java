@@ -65,6 +65,7 @@ public final class HackList implements UpdateListener
 	public final AutoSwordHack autoSwordHack = new AutoSwordHack();
 	public final AutoToolHack autoToolHack = new AutoToolHack();
 	public final AutoTotemHack autoTotemHack = new AutoTotemHack();
+	public final HoverTotemHack hoverTotemHack = new HoverTotemHack();
 	public final AutoWalkHack autoWalkHack = new AutoWalkHack();
 	public final BarrierEspHack barrierEspHack = new BarrierEspHack();
 	public final BaseFinderHack baseFinderHack = new BaseFinderHack();
