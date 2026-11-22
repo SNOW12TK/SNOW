@@ -54,8 +54,9 @@ public abstract class NavigatorScreen extends Screen
 		boolean doubleClick)
 	{
 		// scrollbar
-		if(new Rectangle(width / 2 + 170, 60, 12, height - 103)
-			.contains(context.x(), context.y()))
+		if(new Rectangle(getScrollbarX(), getScrollbarTop(), 12,
+			getScrollbarBottom() - getScrollbarTop()).contains(context.x(),
+				context.y()))
 			scrolling = true;
 		
 		onMouseClick(context);
@@ -74,7 +75,8 @@ public abstract class NavigatorScreen extends Screen
 			if(maxScroll == 0)
 				scroll = 0;
 			else
-				scroll = (int)((context.y() - 72) * maxScroll / (height - 131));
+				scroll = (int)((context.y() - (getScrollbarTop() + 12)) * maxScroll
+					/ getScrollTrack());
 			
 			if(scroll > 0)
 				scroll = 0;
@@ -85,7 +87,7 @@ public abstract class NavigatorScreen extends Screen
 				scrollKnobPosition = 0;
 			else
 				scrollKnobPosition =
-					(int)((height - 131) * scroll / (float)maxScroll);
+					(int)(getScrollTrack() * scroll / (float)maxScroll);
 			scrollKnobPosition += 2;
 		}
 		
@@ -125,7 +127,7 @@ public abstract class NavigatorScreen extends Screen
 				scrollKnobPosition = 0;
 			else
 				scrollKnobPosition =
-					(int)((height - 131) * scroll / (float)maxScroll);
+					(int)(getScrollTrack() * scroll / (float)maxScroll);
 			scrollKnobPosition += 2;
 		}
 		
@@ -151,14 +153,16 @@ public abstract class NavigatorScreen extends Screen
 		if(hasBackground)
 			drawBackgroundBox(extractor, bgx1, bgy1, bgx2, bgy2);
 		
-		// scrollbar
+		onRender(extractor, mouseX, mouseY, partialTicks);
+		
+		// scrollbar (drawn after the screen content, so it stays on top)
 		if(showScrollbar)
 		{
 			// bar
-			int x1 = bgx2 + 16;
+			int x1 = getScrollbarX();
 			int x2 = x1 + 12;
-			int y1 = bgy1;
-			int y2 = bgy2;
+			int y1 = getScrollbarTop();
+			int y2 = getScrollbarBottom();
 			drawBackgroundBox(extractor, x1, y1, x2, y2);
 			
 			// knob
@@ -174,8 +178,6 @@ public abstract class NavigatorScreen extends Screen
 			for(int i = 0; i < 3; y1 += 4, y2 += 4, i++)
 				drawDownShadow(extractor, x1, y1, x2, y2);
 		}
-		
-		onRender(extractor, mouseX, mouseY, partialTicks);
 	}
 	
 	@Override
@@ -189,6 +191,26 @@ public abstract class NavigatorScreen extends Screen
 	public final boolean isPauseScreen()
 	{
 		return false;
+	}
+	
+	protected int getScrollbarX()
+	{
+		return middleX + 170;
+	}
+	
+	protected int getScrollbarTop()
+	{
+		return 60;
+	}
+	
+	protected int getScrollbarBottom()
+	{
+		return height - 43;
+	}
+	
+	private int getScrollTrack()
+	{
+		return getScrollbarBottom() - getScrollbarTop() - 28;
 	}
 	
 	protected abstract void onResize();
