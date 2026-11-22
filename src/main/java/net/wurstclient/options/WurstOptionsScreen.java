@@ -21,8 +21,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.InputWithModifiers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.CommonColors;
-import net.minecraft.util.Util;
-import net.minecraft.util.Util.OS;
 import net.wurstclient.WurstClient;
 import net.wurstclient.analytics.PlausibleAnalytics;
 import net.wurstclient.commands.FriendsCmd;
@@ -118,7 +116,7 @@ public class WurstOptionsScreen extends Screen
 	
 	private void addLinkButtons()
 	{
-
+		
 	}
 	
 	@Override

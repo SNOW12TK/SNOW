@@ -354,8 +354,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 			tooltip = feature.getWrappedDescription(200);
 		
 		// box & shadow
-		int featColor = RenderUtils.toIntColor(
-			gui.getBgColor(),
+		int featColor = RenderUtils.toIntColor(gui.getBgColor(),
 			gui.getOpacity() * (renderAsHovered ? 1.5F : 1));
 		drawBox(extractor, area.x, area.y, area.x + area.width,
 			area.y + area.height, featColor);
@@ -384,8 +383,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 			String buttonText = feature.getName();
 			int bx = area.x + 6;
 			int by = area.y + 3;
-			int txtColor =
-				feature.isEnabled() ? 0xFFA855F7 : gui.getTxtColor();
+			int txtColor = feature.isEnabled() ? 0xFFA855F7 : gui.getTxtColor();
 			extractor.text(tr, buttonText, bx, by, txtColor, false);
 			
 			String desc = feature.getDescription().replace("\n", " ")

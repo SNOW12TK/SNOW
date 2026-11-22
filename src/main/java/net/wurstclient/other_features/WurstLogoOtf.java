@@ -33,7 +33,8 @@ public final class WurstLogoOtf extends OtherFeature
 	
 	public WurstLogoOtf()
 	{
-		super("SnowLogo", "Shows the SNOWCLIENT logo and version on the screen.");
+		super("SnowLogo",
+			"Shows the SNOWCLIENT logo and version on the screen.");
 		addSetting(bgColor);
 		addSetting(txtColor);
 		addSetting(visibility);
